@@ -1,6 +1,6 @@
 # flutter_china_stats_visualizer
 
-ChinaStatsVisualizer is a Flutter application designed to present monthly statistical data from the National Bureau of Statistics of China (NBS). It provides users with an intuitive interface to explore key economic and social indicators through interactive charts and tables. The application fetches data directly from the NBS API, ensuring accuracy and timeliness. Users can visualize trends, compare different indicators, and gain valuable insights into China's economic landscape.
+ChinaStatsVisualizer is a Flutter application designed to present monthly statistical data from the National Bureau of Statistics of China (NBSC). It provides users with an intuitive interface to explore key economic and social indicators through interactive charts and tables. The application fetches data directly from the NBS API, ensuring accuracy and timeliness. Users can visualize trends, compare different indicators, and gain valuable insights into China's economic landscape.
 
 ## Getting Started
 
