@@ -15,4 +15,5 @@ class AppDefaults {
         .copyWith(borderSide: BorderSide(width: 2, color: AppColors.primary));
 
     static const String logo = "assets/logo/Logo.svg";
+    static const int maxMenuLevel = 3;
 }
