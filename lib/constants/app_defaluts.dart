@@ -13,4 +13,6 @@ class AppDefaults {
         borderSide: BorderSide.none);
     static OutlineInputBorder focusedOutlineInputBorder = outlineInputBorder
         .copyWith(borderSide: BorderSide(width: 2, color: AppColors.primary));
+
+    static const String logo = "assets/logo/Logo.svg";
 }
