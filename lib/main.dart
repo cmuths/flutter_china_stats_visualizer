@@ -6,13 +6,14 @@ import 'package:flutter_acrylic/window.dart';
 import 'package:flutter_acrylic/window_effect.dart';
 import 'package:flutter_china_stats_visualizer/theme/app_theme.dart';
 import 'package:flutter_china_stats_visualizer/router/app_routes.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 Future<void> main() async {
     WidgetsFlutterBinding.ensureInitialized();
     await Window.initialize();
     if (Platform.isWindows) {
         await Window.hideWindowControls();
     }
-    runApp(MyApp());
+    runApp( const ProviderScope(child: MyApp(),));
     if (Platform.isWindows) {
         doWhenWindowReady(() {
             appWindow
@@ -45,11 +46,9 @@ class MyApp extends StatelessWidget {
     // This widget is the root of your application.
     @override
     Widget build(BuildContext context) {
-
         setWindowEffect(WindowEffect.acrylic);
-
         return MaterialApp.router(
-            title: 'NBS Data',
+            title: 'NBSC DAtA',
             theme: AppTheme.light(context),
             routerConfig: routerConfig
         );

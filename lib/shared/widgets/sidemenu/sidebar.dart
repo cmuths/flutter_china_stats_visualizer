@@ -14,6 +14,7 @@ class Sidebar extends StatelessWidget {
         return Drawer(
             // width: Responsive.isMobile(context) ? double.infinity : null,
             // width: MediaQuery.of(context).size.width < 1300 ? 260 : null,
+            backgroundColor: Colors.transparent,
             child: SafeArea(
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
