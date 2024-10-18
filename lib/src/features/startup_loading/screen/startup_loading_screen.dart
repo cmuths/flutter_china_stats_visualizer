@@ -8,7 +8,7 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 import '../../../constants/app_fill_box.dart';
 import '../../../theme/app_colors.dart';
 
-import '../../main_frame/repository/menu_async_repository.dart';
+import '../../main_frame/repository/excel/metrics_async_repository.dart';
 
 class StartupLoadingScreen  extends ConsumerStatefulWidget {
 
@@ -31,7 +31,7 @@ class _StartupLoadingScreenState extends ConsumerState<StartupLoadingScreen> {
 
     void _loadExcelData(int i) async{
         await Future.delayed(Duration(seconds: i));
-        ref.read(menuAsyncRepositoryProvider.notifier).loadExcelData();
+        await ref.read(metricsAsyncRepositoryProvider.notifier).load();
         if(mounted){
             context.go('/main');
         }

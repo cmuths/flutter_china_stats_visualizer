@@ -7,7 +7,7 @@ part of 'menu_async_repository.dart';
 // **************************************************************************
 
 String _$menuAsyncRepositoryHash() =>
-    r'd433140d5be09a9856bfd6c8819931a1366f160d';
+    r'c08f602dc43f1c0e0ef09e0c1ee9906324c44097';
 
 /// See also [MenuAsyncRepository].
 @ProviderFor(MenuAsyncRepository)
