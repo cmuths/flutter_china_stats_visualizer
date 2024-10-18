@@ -1,3 +1,11 @@
+/*
+ * @Author: lihuiyong1 lihuiyong1@newhope.com
+ * @Date: 2024-10-17 16:42:30
+ * @LastEditors: lihuiyong1 lihuiyong1@newhope.com
+ * @LastEditTime: 2024-10-18 17:10:39
+ * @FilePath: \flutter_china_stats_visualizer\lib\src\features\main_frame\repository\menu_async_repository.dart
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 import 'dart:io';
 
 import 'package:excel/excel.dart';
@@ -21,21 +29,22 @@ class MenuAsyncRepository extends _$MenuAsyncRepository {
         state = const AsyncLoading(); // 设置加载状态
         try {
             List<MenuItem> menus = await compute(_loadMenu, 1);
-            state =  AsyncData(menus);
-        }catch(e){
+            state = AsyncData(menus);
+        } catch (e) {
             state = AsyncError(e, StackTrace.current); // 设置错误
         }
     }
 
-    List<MenuItem> _loadMenu(int i){
+    List<MenuItem> _loadMenu(int i) {
         var bytes = File(AppDefaults.mMetricsPath).readAsBytesSync();
         var excel = Excel.decodeBytes(bytes);
         var sheet = excel.tables[excel.tables.keys.first];
         if (sheet == null) {
             return [];
-        }else{
+        } else {
             Map<String, MenuItem> menuMap = {};
-            for (var row in sheet.rows.skip(1)) { // 跳过标题行
+            for (var row in sheet.rows.skip(1)) {
+                // 跳过标题行
                 _addMenuItem(menuMap, row);
             }
             return menuMap.values.toList();
@@ -54,7 +63,8 @@ class MenuAsyncRepository extends _$MenuAsyncRepository {
             }
             var id = value;
             var icon = MenuIconConfig.getIcon(id);
-            var isLeaf = (level == AppDefaults.maxMenuLevel - 1) || (row[level + 1]?.value?.toString() ?? '').isEmpty;
+            var isLeaf = (level == AppDefaults.maxMenuLevel - 1) ||
+                (row[level + 1]?.value?.toString() ?? '').isEmpty;
 
             if (parent == null) {
                 menuMap[id] = menuMap.putIfAbsent(
@@ -65,7 +75,8 @@ class MenuAsyncRepository extends _$MenuAsyncRepository {
             } else {
                 var child = parent.children.firstWhere(
                     (child) => child.id == id,
-                    orElse: () => MenuItem(id: id, name: value, isLeaf: isLeaf, icon: icon),
+                    orElse: () =>
+                    MenuItem(id: id, name: value, isLeaf: isLeaf, icon: icon),
                 );
 
                 if (!parent.children.contains(child)) {
