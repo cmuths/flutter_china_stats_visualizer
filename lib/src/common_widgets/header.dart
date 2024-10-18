@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_china_stats_visualizer/constants/app_defaluts.dart';
-import 'package:flutter_china_stats_visualizer/constants/app_fill_box.dart';
+import 'package:flutter_china_stats_visualizer/src/constants/app_defaluts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../theme/app_colors.dart';
+import '../constants/app_fill_box.dart';
+import '../theme/app_colors.dart';
+
 
 
 class Header extends StatelessWidget {

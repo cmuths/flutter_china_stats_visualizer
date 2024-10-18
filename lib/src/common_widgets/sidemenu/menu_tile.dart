@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_china_stats_visualizer/constants/app_defaluts.dart';
+import 'package:flutter_china_stats_visualizer/src/constants/app_defaluts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../theme/app_colors.dart';
+import '../../theme/app_colors.dart';
+
 
 class MenuTile extends StatelessWidget {
     const MenuTile({

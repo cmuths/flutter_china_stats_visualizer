@@ -1,34 +1,42 @@
-
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_china_stats_visualizer/constants/app_fill_box.dart';
-import 'package:flutter_china_stats_visualizer/theme/app_colors.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
-class Loading extends ConsumerStatefulWidget {
-    const Loading({super.key});
+import '../../../constants/app_fill_box.dart';
+import '../../../theme/app_colors.dart';
 
+import '../../main_frame/repository/menu_async_repository.dart';
+
+class StartupLoadingScreen  extends ConsumerStatefulWidget {
+
+    const StartupLoadingScreen({super.key});
     @override
-    _LoadingScreenState createState() => _LoadingScreenState();
+    _StartupLoadingScreenState createState() => _StartupLoadingScreenState();
+
 }
 
-class _LoadingScreenState extends ConsumerState<Loading> {
+class _StartupLoadingScreenState extends ConsumerState<StartupLoadingScreen> {
 
     @override
     void initState() {
         super.initState();
-        _loadExcelData();
+        SchedulerBinding.instance.addPostFrameCallback((_) {
+            _loadExcelData(3);
+        });
     }
 
-    Future<void> _loadExcelData() async {
 
-        // 模拟加载Excel文件
-        await Future.delayed(Duration(seconds: 3)); // 模拟延迟
-
-        // 加载完成后导航到Dashboard页面
-        context.go('/main');
+    void _loadExcelData(int i) async{
+        await Future.delayed(Duration(seconds: i));
+        ref.read(menuAsyncRepositoryProvider.notifier).loadExcelData();
+        if(mounted){
+            context.go('/main');
+        }
     }
+
 
     @override
     Widget build(BuildContext context) {
@@ -55,5 +63,4 @@ class _LoadingScreenState extends ConsumerState<Loading> {
                 )),
         );
     }
-
 }

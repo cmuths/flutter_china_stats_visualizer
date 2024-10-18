@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_china_stats_visualizer/constants/app_fill_box.dart';
-import 'package:flutter_china_stats_visualizer/theme/app_colors.dart';
+
+import '../../constants/app_fill_box.dart';
+import '../../theme/app_colors.dart';
 
 
 class CustomerAvatar extends StatefulWidget {

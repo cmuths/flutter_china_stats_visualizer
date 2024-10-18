@@ -1,9 +1,11 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_china_stats_visualizer/constants/app_defaluts.dart';
-import 'package:flutter_china_stats_visualizer/constants/app_fill_box.dart';
-import 'package:flutter_china_stats_visualizer/shared/widgets/avatar/customer_rounded_avatar.dart';
-import 'package:flutter_china_stats_visualizer/theme/app_colors.dart';
+import 'package:flutter_china_stats_visualizer/src/constants/app_defaluts.dart';
+
+import '../../constants/app_fill_box.dart';
+import '../../theme/app_colors.dart';
+import '../avatar/customer_rounded_avatar.dart';
+
 
 class CustomerInfo extends StatelessWidget {
     const CustomerInfo({

@@ -1,20 +1,15 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_china_stats_visualizer/constants/app_defaluts.dart';
-import 'package:flutter_china_stats_visualizer/pages/dashboard/dashboard.dart';
-import 'package:flutter_china_stats_visualizer/shared/widgets/sidemenu/sidebar.dart';
 
-import '../shared/widgets/header.dart';
+import '../../../common_widgets/sidemenu/sidebar.dart';
+import '../../../constants/app_defaluts.dart';
 
-final GlobalKey<ScaffoldState> _drawerKey = GlobalKey();
-
-class EntryPoint extends StatelessWidget {
-    const EntryPoint({super.key});
+class MainFrameScreen extends StatelessWidget {
+    const MainFrameScreen({super.key});
 
     @override
     Widget build(BuildContext context) {
         return Scaffold(
-            key: _drawerKey,
             backgroundColor: Colors.transparent,
             body: Row(
                 children: [
@@ -32,7 +27,7 @@ class EntryPoint extends StatelessWidget {
                                                         horizontal: AppDefaults.padding *
                                                             1.5,
                                                     ),
-                                                    child: const SafeArea(child: DashBoard()),
+                                                    child: const SafeArea(child:  SizedBox(height: 24)),
                                                 ),
                                             ],
                                         ),

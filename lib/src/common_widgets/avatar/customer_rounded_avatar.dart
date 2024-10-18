@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_china_stats_visualizer/constants/app_defaluts.dart';
+import 'package:flutter_china_stats_visualizer/src/constants/app_defaluts.dart';
 
 class CustomerRoundedAvatar extends StatelessWidget {
     const CustomerRoundedAvatar({
