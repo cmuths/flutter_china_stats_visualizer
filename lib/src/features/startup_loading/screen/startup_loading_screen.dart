@@ -9,6 +9,7 @@ import '../../../constants/app_fill_box.dart';
 import '../../../theme/app_colors.dart';
 
 import '../../main_frame/repository/excel/metrics_async_repository.dart';
+import '../service/startup_service.dart';
 
 class StartupLoadingScreen  extends ConsumerStatefulWidget {
 
@@ -31,7 +32,7 @@ class _StartupLoadingScreenState extends ConsumerState<StartupLoadingScreen> {
 
     void _loadExcelData(int i) async{
         await Future.delayed(Duration(seconds: i));
-        await ref.read(metricsAsyncRepositoryProvider.notifier).load();
+        await ref.read(startUpServiceProvider).initData();
         if(mounted){
             context.go('/main');
         }

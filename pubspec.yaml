@@ -20,7 +20,10 @@ dependencies:
   flutter_riverpod: ^3.0.0-dev.3
   riverpod_annotation: ^3.0.0-dev.3
   excel: ^4.0.6
-  sqlite3: ^2.4.6
+  sqflite_common_ffi: ^2.3.4
+  path_provider: ^2.1.4
+  logger: ^2.4.0
+  json_annotation: ^4.9.0
 
 
 dev_dependencies:
@@ -31,6 +34,7 @@ dev_dependencies:
   riverpod_lint: ^3.0.0-dev.4
   build_runner:
   custom_lint:
+  json_serializable: ^6.8.0
 
 flutter:
   uses-material-design: true
