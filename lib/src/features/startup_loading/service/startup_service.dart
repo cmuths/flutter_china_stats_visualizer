@@ -18,8 +18,7 @@ class StartUpService {
             final metricsExcelProvider = ref.read(
                 metricsAsyncRepositoryProvider.notifier);
             final metricsDefineDbProvider = ref.read(metricsDefineDbOpProvider);
-            final List<MetricsDefineDomain> list = await metricsExcelProvider
-                .load();
+            final List<MetricsDefineDomain> list = await metricsExcelProvider.load();
             await metricsDefineDbProvider.create();
             await metricsDefineDbProvider.deleteAll();
             await metricsDefineDbProvider.batchInsert(list);
@@ -31,5 +30,5 @@ class StartUpService {
 
 @riverpod
 StartUpService startUpService (StartUpServiceRef ref){
-return  StartUpService(ref);
+    return  StartUpService(ref);
 }
