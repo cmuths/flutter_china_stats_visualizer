@@ -48,23 +48,6 @@ class SqFliteHelper {
     }
 
     static Future<void> _onCreate(Database database) async{
-       await database.execute(""" 
-            create table if not exists metrics_define(
-              id INTEGER  primary key AUTOINCREMENT,
-              metrics_level1_name TEXT,
-              metrics_level1_code TEXT,
-              metrics_level2_name TEXT,
-              metrics_level2_code TEXT,
-              metrics_level3_name TEXT,
-              metrics_level3_code TEXT,
-              metrics_name TEXT,
-              metrics_code TEXT,
-              metrics_type TEXT,
-              metrics_type_name TEXT,
-              metrics_unit TEXT,
-              metrics_unit_name TEXT,
-            )
-        """);
     }
 
 }

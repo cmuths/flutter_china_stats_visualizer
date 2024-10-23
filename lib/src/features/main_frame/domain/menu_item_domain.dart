@@ -5,6 +5,8 @@ class MenuItem {
     final bool isLeaf;
     final String icon;
     final bool isActive;
+    final String activeIcon;
+    final String inactiveIcon;
     final List<MenuItem> children;
 
     MenuItem({
@@ -12,6 +14,8 @@ class MenuItem {
         required this.name,
         this.isLeaf = false,
         this.icon = '',
+        this.activeIcon = '',
+        this.inactiveIcon = '',
         this.isActive = false,
         this.children = const [],
     });
@@ -21,6 +25,8 @@ class MenuItem {
         String? name,
         bool? isLeaf,
         String? icon,
+        String? activeIcon,
+        String? inactiveIcon,
         bool? isActive,
         List<MenuItem>? children,
     }) {
@@ -29,6 +35,8 @@ class MenuItem {
             name: name ?? this.name,
             isLeaf: isLeaf ?? this.isLeaf,
             icon: icon ?? this.icon,
+            activeIcon: activeIcon ?? this.activeIcon,
+            inactiveIcon: inactiveIcon ?? this.inactiveIcon,
             isActive: isActive ?? this.isActive,
             children: children ?? this.children,
         );

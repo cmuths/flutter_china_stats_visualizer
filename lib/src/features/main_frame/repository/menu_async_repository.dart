@@ -10,6 +10,7 @@ import 'dart:io';
 
 import 'package:excel/excel.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_china_stats_visualizer/src/features/main_frame/domain/menu_item_domain.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -22,6 +23,11 @@ part 'menu_async_repository.g.dart';
 class MenuAsyncRepository extends _$MenuAsyncRepository {
     @override
     FutureOr<List<MenuItem>> build() async {
+
+        ///根节点
+        MenuItem work = MenuItem(id: 'work', name: '工作台',isLeaf: true);
+        MenuItem metrics = MenuItem(id: 'metrics', name: '指标',isLeaf: false);
+
         return [];
     }
 
@@ -87,4 +93,6 @@ class MenuAsyncRepository extends _$MenuAsyncRepository {
             }
         }
     }
+
+
 }
