@@ -4,8 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../constants/app_fill_box.dart';
 
-class SidebarMenu extends ConsumerStatefulWidget
-{
+class SidebarMenu extends ConsumerStatefulWidget {
     const SidebarMenu({super.key});
 
     @override
@@ -13,19 +12,17 @@ class SidebarMenu extends ConsumerStatefulWidget
 }
 
 class _SidebarMenuState extends ConsumerState
-    with SingleTickerProviderStateMixin
-{
+    with SingleTickerProviderStateMixin {
     late AnimationController _controller;
     late Animation<double> _heightAnimation;
     late Animation<double> _sizeAnimation;
 
     @override
-    void initState()
-    {
+    void initState() {
         super.initState();
         _controller = AnimationController(
             vsync: this,
-            duration: const Duration(milliseconds: 500),
+            duration: const Duration(milliseconds: 800),
         );
 
         ///多段动画
@@ -75,45 +72,34 @@ class _SidebarMenuState extends ConsumerState
                 parent: _controller,
                 curve: Curves.elasticOut,
             ),
-        )
-        ..addListener(()
-            {
-                setState(()
-                    {
-                    }
-                );
-            }
-        );
-
+        )..addListener(() {
+                setState(() {});
+            });
 
         _sizeAnimation = Tween<double>(begin: 0.0, end: 30.0).animate(
             CurvedAnimation(
                 parent: _controller,
-                curve: Curves.linear,
+                curve: Curves.elasticOut,
             ),
         );
 
         // 在 UI 初始化完成后触发动画
-        WidgetsBinding.instance.addPostFrameCallback((_)
-            {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
                 _controller.forward();
-            }
-        );
+            });
     }
 
     @override
-    void dispose()
-    {
+    void dispose() {
         _controller.dispose();
         super.dispose();
     }
 
     @override
-    Widget build(BuildContext context)
-    {
+    Widget build(BuildContext context) {
         return SafeArea(
             child: Padding(
-                padding: EdgeInsets.only(left: 10),
+                padding: EdgeInsets.only(left: 10,right: 10),
                 child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
                         Container(
@@ -149,9 +135,7 @@ class _SidebarMenuState extends ConsumerState
                                                         CupertinoIcons.house_fill,
                                                         size: _sizeAnimation.value,
                                                     ),
-                                                    onPressed: ()
-                                                    {
-                                                    },
+                                                    onPressed: () {},
                                                     color: Colors.white,
                                                 )),
                                         ),
@@ -163,9 +147,7 @@ class _SidebarMenuState extends ConsumerState
                                                         CupertinoIcons.chart_bar_circle_fill,
                                                         size: _sizeAnimation.value,
                                                     ),
-                                                    onPressed: ()
-                                                    {
-                                                    },
+                                                    onPressed: () {},
                                                     color: Colors.white,
                                                 )),
                                         ),
@@ -177,21 +159,14 @@ class _SidebarMenuState extends ConsumerState
                                                         CupertinoIcons.square_split_2x2_fill,
                                                         size: _sizeAnimation.value,
                                                     ),
-                                                    onPressed: ()
-                                                    {
-                                                    },
+                                                    onPressed: () {},
                                                     color: Colors.white,
                                                 )),
                                         ),
                                         AppFillBox.gapH24,
                                     ],
-                                )
-                            ),
+                                )),
                         )
                     ])));
-
-
     }
-
-
 }

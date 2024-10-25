@@ -42,6 +42,7 @@ flutter:
   assets:
     - assets/icons/
     - assets/images/
+    - assets/images/dashboard/
     - assets/images/illustration/
     - assets/logo/
     - assets/excel/M-Metrics.xlsx
