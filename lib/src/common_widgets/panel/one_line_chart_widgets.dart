@@ -15,7 +15,7 @@ class OneLineChartWidgets extends ConsumerWidget {
         return AspectRatio(
             aspectRatio: 16 / 9,
             child: PanelWidgets(
-                bgColor: Color(0xFFF4C948),
+                bgColor: Colors.white.withOpacity(0.7),
                 child: Stack(
                     children: [
                         Expanded(
