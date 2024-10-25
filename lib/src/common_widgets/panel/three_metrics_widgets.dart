@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_china_stats_visualizer/src/common_widgets/panel/panel_widgets.dart';
 import 'package:flutter_china_stats_visualizer/src/features/dashborad/domain/metrics_domain.dart';
+import 'package:flutter_china_stats_visualizer/src/utils/number_helper.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -25,6 +26,7 @@ class ThreeMetricsWidgets extends ConsumerWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: List.generate(metrics.length, (index) {
                                     var metric = metrics[index];
+                                    List<String> valueFormatNum = NumberHelper.splitIntegerAndDecimal(metric.value);
                                     return Column(
                                         mainAxisAlignment: MainAxisAlignment.center,
                                         children: [
@@ -35,15 +37,32 @@ class ThreeMetricsWidgets extends ConsumerWidget {
                                                 color: metric.iconColor,
                                             ),
                                             AppFillBox.gapH24,
-                                            Text(
-                                                metric.value,
-                                                style: GoogleFonts.lato(
-                                                    fontSize: 36,
-                                                    fontWeight: FontWeight.w700,
-                                                    fontStyle: FontStyle.normal,
-                                                    color: metric.valueColor,
-                                                ),
-                                            ),
+
+
+                                            RichText(text: TextSpan(
+                                                children: [
+                                                    TextSpan(
+                                                        text: valueFormatNum[0],
+                                                        style: GoogleFonts.lato(
+                                                            fontSize: 36,
+                                                            fontWeight: FontWeight.w700,
+                                                            fontStyle: FontStyle.normal,
+                                                            color: metric.valueColor,
+                                                        ),
+                                                    ),
+                                                    if(valueFormatNum.length >= 2 )
+                                                    TextSpan(
+                                                        text:  '.${valueFormatNum[1]}',
+                                                        style: GoogleFonts.lato(
+                                                            fontSize: 18,
+                                                            fontWeight: FontWeight.w700,
+                                                            fontStyle: FontStyle.normal,
+                                                            color: metric.valueColor,
+                                                        ),
+                                                    )
+                                                ]
+                                            )),
+
                                             Text(
                                                 metric.name,
                                                 style: GoogleFonts.notoSansSc(

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_china_stats_visualizer/src/common_widgets/panel/one_metrics_widgets.dart';
 import 'package:flutter_china_stats_visualizer/src/common_widgets/panel/panel_widgets.dart';
 import 'package:flutter_china_stats_visualizer/src/common_widgets/panel/three_metrics_widgets.dart';
 import 'package:flutter_china_stats_visualizer/src/constants/app_defaluts.dart';
@@ -58,6 +59,20 @@ class _DashboradScreenState extends ConsumerState<DashboradScreen> {
                 name: '新开工施工面积',
                 nameColor: Colors.white60));
 
+       var demoM =  MetricsDomain(
+            icon: CupertinoIcons.paintbrush_fill,
+            iconColor: Colors.white,
+            value: '135663.12',
+            valueColor: Colors.white,
+            name: '国家财政收入',
+            nameColor: Colors.white60,
+           unitIcon:CupertinoIcons.money_yen ,
+           mom: '2.6',
+           momDirection: -1,
+           yoy: '5.6',
+           yoyDirection: 1
+       );
+
         return Padding(
             padding: EdgeInsets.all(AppDefaults.padding),
             child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
@@ -88,6 +103,15 @@ class _DashboradScreenState extends ConsumerState<DashboradScreen> {
                                             bgColor: Color(0xFFEF7C38),
                                             explain: '2024-10',
                                         ),
+                                        AppFillBox.gapH16,
+                                        Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            children: [
+                                                OneMetricsWidgets(metricsDomain: demoM,bgColor: Color(0xFF4562D5)) ,
+                                                OneMetricsWidgets(metricsDomain: demoM,bgColor: Color(0xFF4562D5))
+                                            ],
+                                        )
+
                                     ],
                                 )),
                         ],

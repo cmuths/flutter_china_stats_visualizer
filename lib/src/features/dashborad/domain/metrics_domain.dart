@@ -8,16 +8,20 @@ class MetricsDomain {
     final String name;
     final Color nameColor;
 
+
     //单位图标
     final IconData? unitIcon;
+    final Color? unitIconColor;
 
     //同比
     final String? yoy;
     final int yoyDirection;
+    final Color? yoyColor;
 
     //环比
     final String? mom;
     final int momDirection;
+    final Color? momColor;
 
     MetricsDomain(
     {required this.icon,
@@ -27,8 +31,11 @@ class MetricsDomain {
         required this.name,
         required this.nameColor,
         this.unitIcon,
+        this.unitIconColor,
         this.yoy,
+        this.yoyColor,
         this.yoyDirection = 1,
         this.mom,
+        this.momColor,
         this.momDirection = 1});
 }

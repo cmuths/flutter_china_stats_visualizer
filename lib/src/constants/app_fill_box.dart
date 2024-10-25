@@ -5,6 +5,7 @@ class AppFillBox{
 
   static const gapH4 = SizedBox(height: 4);
   static const gapH8 = SizedBox(height: 8);
+  static const gapH12 = SizedBox(height: 12);
   static const gapH16 = SizedBox(height: 16);
   static const gapH20 = SizedBox(height: 20);
   static const gapH24 = SizedBox(height: 24);
