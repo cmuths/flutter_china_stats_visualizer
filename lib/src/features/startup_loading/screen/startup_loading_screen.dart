@@ -34,7 +34,7 @@ class _StartupLoadingScreenState extends ConsumerState<StartupLoadingScreen> {
         await Future.delayed(Duration(seconds: i));
         await ref.read(startUpServiceProvider).initData();
         if(mounted){
-            context.go('/main');
+            context.go('/dashboard');
         }
     }
 

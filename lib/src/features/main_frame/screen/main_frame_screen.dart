@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_china_stats_visualizer/src/common_widgets/sidemenu/sidebar_menu.dart';
 import 'package:flutter_china_stats_visualizer/src/features/dashborad/screen/dashborad_screen.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../constants/app_defaluts.dart';
 
 class MainFrameScreen extends StatelessWidget {
-    const MainFrameScreen({super.key});
 
+    const MainFrameScreen({super.key, required this.navigationShell});
+
+    final StatefulNavigationShell navigationShell;
     @override
     Widget build(BuildContext context) {
         return Scaffold(
@@ -14,7 +17,7 @@ class MainFrameScreen extends StatelessWidget {
             body: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                    const SidebarMenu(),
+                    SidebarMenu(navigationShell:navigationShell),
                     Expanded(
                         child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -27,7 +30,7 @@ class MainFrameScreen extends StatelessWidget {
                                                     horizontal: AppDefaults.padding,
                                                     vertical: AppDefaults.padding,
                                                 ),
-                                                child: const SafeArea(child: DashboradScreen()),
+                                                child: SafeArea(child: navigationShell),
                                             ),
                                         ],
                                     ),
