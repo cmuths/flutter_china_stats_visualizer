@@ -10,30 +10,56 @@ final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final _sectionNavigatorKey = GlobalKey<NavigatorState>();
 
 final routerConfig = GoRouter(
-    navigatorKey: _rootNavigatorKey,
-    initialLocation: '/',
-    routes: <RouteBase>[
-      GoRoute(
-          path: '/', builder: (context, state) => const StartupLoadingScreen()),
-      StatefulShellRoute.indexedStack(
-          builder: (context, state, navigationShell) {
-            return MainFrameScreen(navigationShell: navigationShell);
-          },
-          branches: [
-            StatefulShellBranch(routes: <RouteBase>[
-              GoRoute(
-                  path: '/dashboard',
-                  builder: (context, state) => const DashboradScreen())
-            ]),
-            StatefulShellBranch(routes: <RouteBase>[
-              GoRoute(
-                  path: '/report',
-                  builder: (context, state) => const ReportScreen())
-            ]),
-            StatefulShellBranch(routes: <RouteBase>[
-              GoRoute(
-                  path: '/detail',
-                  builder: (context, state) => const MonthDetailScreen())
-            ])
-          ])
-    ]);
+  navigatorKey: _rootNavigatorKey,
+  initialLocation: '/',
+  routes: <RouteBase>[
+    GoRoute(
+      path: '/',
+      builder: (context, state) => const StartupLoadingScreen(),
+    ),
+    ShellRoute(
+      navigatorKey: _sectionNavigatorKey,
+      builder: (context, state, child) {
+        return MainFrameScreen(
+          child: child,
+        );
+      },
+      routes: <RouteBase>[
+        GoRoute(
+          path: '/dashboard',
+          builder: (context, state) => const DashboradScreen(),
+        ),
+        GoRoute(
+          path: '/report',
+          builder: (context, state) => const ReportScreen(),
+        ),
+        GoRoute(
+          path: '/detail',
+          builder: (context, state) => const MonthDetailScreen(),
+        ),
+      ],
+    ),
+    // StatefulShellRoute.indexedStack(
+    //     builder: (context, state, navigationShell) {
+    //       return MainFrameScreen(navigationShell: navigationShell);
+    //     },
+    //     branches: [
+    //       StatefulShellBranch(routes: <RouteBase>[
+    //         GoRoute(
+    //           path: '/dashboard',
+    //           builder: (context, state) => const DashboradScreen(),
+    //         )
+    //       ]),
+    //       StatefulShellBranch(routes: <RouteBase>[
+    //         GoRoute(
+    //             path: '/report',
+    //             builder: (context, state) => const ReportScreen())
+    //       ]),
+    //       StatefulShellBranch(routes: <RouteBase>[
+    //         GoRoute(
+    //             path: '/detail',
+    //             builder: (context, state) => const MonthDetailScreen())
+    //       ])
+    //     ])
+  ],
+);

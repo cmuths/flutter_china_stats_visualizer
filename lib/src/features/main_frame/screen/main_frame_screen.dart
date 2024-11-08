@@ -7,9 +7,10 @@ import '../../../constants/app_defaluts.dart';
 
 class MainFrameScreen extends StatelessWidget {
 
-    const MainFrameScreen({super.key, required this.navigationShell});
+    const MainFrameScreen({super.key, required this.child});
 
-    final StatefulNavigationShell navigationShell;
+    // final StatefulNavigationShell navigationShell;
+    final Widget child;
     @override
     Widget build(BuildContext context) {
         return Scaffold(
@@ -17,7 +18,7 @@ class MainFrameScreen extends StatelessWidget {
             body: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                    SidebarMenu(navigationShell:navigationShell),
+                    SidebarMenu(),
                     Expanded(
                         child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -30,7 +31,7 @@ class MainFrameScreen extends StatelessWidget {
                                                     horizontal: AppDefaults.padding,
                                                     vertical: AppDefaults.padding,
                                                 ),
-                                                child: SafeArea(child: navigationShell),
+                                                child: SafeArea(child: child),
                                             ),
                                         ],
                                     ),
