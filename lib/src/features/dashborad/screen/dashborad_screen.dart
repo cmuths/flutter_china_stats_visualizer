@@ -174,8 +174,11 @@ class _DashboradScreenState extends ConsumerState<DashboradScreen> {
                         explain: '2024-10',
                       ),
                       AppFillBox.gapH16,
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      Wrap(
+                        direction: Axis.horizontal,
+                        alignment: WrapAlignment.spaceEvenly,
+                        spacing: AppDefaults.padding,
+                        runSpacing: AppDefaults.padding,
                         children: [
                           OneMetricsWidgets(
                             metricsDomain: demoM,
@@ -184,9 +187,9 @@ class _DashboradScreenState extends ConsumerState<DashboradScreen> {
                           OneMetricsWidgets(
                             metricsDomain: demoM,
                             bgColor: Color(0xFF4562D5),
-                          )
+                          ),
                         ],
-                      )
+                      ),
                     ],
                   )),
             ],

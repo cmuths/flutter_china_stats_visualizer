@@ -19,8 +19,8 @@ Future<void> main() async {
     if (Platform.isWindows) {
         doWhenWindowReady(() {
                 appWindow
-                    ..minSize = Size(640, 360)
-                    ..size = Size(1024, 768)
+                    ..minSize = Size(1336, 768)
+                    ..size = Size(1336, 768)
                     ..alignment = Alignment.center
                 ..show();
             });

@@ -18,7 +18,7 @@ class ThreeMetricsWidgets extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return ConstrainedBox(
-      constraints: const BoxConstraints(minWidth: 400),
+      constraints: BoxConstraints(minWidth: 400),
       child: PanelWidgets(
         bgColor: bgColor,
         child: Stack(
@@ -98,5 +98,6 @@ class ThreeMetricsWidgets extends ConsumerWidget {
         ),
       ),
     );
+    ConstrainedBox;
   }
 }

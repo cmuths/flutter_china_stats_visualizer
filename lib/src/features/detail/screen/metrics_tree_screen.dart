@@ -128,8 +128,20 @@ class _MetricsTreeScreenState extends State<MetricsTreeScreen> {
                 IconButton(
                   icon: const Icon(Icons.clear),
                   onPressed: clearSearch,
-                ),
+                )
               ],
+            ),
+          ),
+          Expanded(
+            child: AnimatedTreeView<Node>(
+              treeController: treeController,
+              nodeBuilder: (BuildContext context, TreeEntry<Node> entry) {
+                return TreeTile(
+                  entry: entry,
+                  match: filter?.matchOf(entry.node),
+                  searchPattern: searchPattern,
+                );
+              },
             ),
           ),
         ],
