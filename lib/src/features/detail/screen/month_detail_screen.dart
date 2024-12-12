@@ -88,18 +88,20 @@ class _MonthDetailScreenState extends ConsumerState<MonthDetailScreen> {
                         ],
                       ),
                     ),
-                    TreeView.simpleTyped<UserName, TreeNode<UserName>>(
-                      tree: tree,
-                      expansionBehavior:
-                          ExpansionBehavior.collapseOthersAndSnapToTop,
-                      shrinkWrap: true,
-                      builder: (context, node) => Card(
-                        color: colorMapper[
-                            node.level.clamp(0, colorMapper.length - 1)]!,
-                        child: ListTile(
-                          title: Text("Item ${node.level}-${node.key}"),
-                          subtitle: Text(
-                              '${node.data?.firstName} ${node.data?.lastName}'),
+                    SingleChildScrollView(
+                      child: TreeView.simpleTyped<UserName, TreeNode<UserName>>(
+                        tree: tree,
+                        expansionBehavior:
+                            ExpansionBehavior.collapseOthersAndSnapToTop,
+                        shrinkWrap: true,
+                        builder: (context, node) => Card(
+                          color: colorMapper[
+                              node.level.clamp(0, colorMapper.length - 1)]!,
+                          child: ListTile(
+                            title: Text("Item ${node.level}-${node.key}"),
+                            subtitle: Text(
+                                '${node.data?.firstName} ${node.data?.lastName}'),
+                          ),
                         ),
                       ),
                     ),
@@ -112,41 +114,6 @@ class _MonthDetailScreenState extends ConsumerState<MonthDetailScreen> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Expanded(
-                      flex: 1,
-                      child: Flex(
-                        direction: Axis.horizontal,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          // 子组件
-                          Text(
-                            "指标明细：",
-                            style: GoogleFonts.lato(
-                              fontSize: 24,
-                              fontWeight: FontWeight.w700,
-                              fontStyle: FontStyle.normal,
-                              color: Colors.white,
-                            ),
-                          ),
-                          ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.blue,
-                            ),
-                            child: Text(
-                              "刷新指标",
-                              style: GoogleFonts.lato(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w700,
-                                fontStyle: FontStyle.normal,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
                     AppFillBox.gapH8,
                     Expanded(
                       flex: 12,
