@@ -139,59 +139,63 @@ class _DashboradScreenState extends ConsumerState<DashboradScreen> {
 
     return Padding(
       padding: EdgeInsets.all(AppDefaults.padding),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+      child: ListView(
         children: [
-          Row(
+          Column(
             mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(
-                flex: 6,
-                child: Column(
-                  children: [
-                    PanelWidgets(child: ImageViewWdiget()),
-                    AppFillBox.gapH16,
-                    OneLineChartWidgets(lineChartData: sampleData1)
-                  ],
-                ),
-              ),
-              AppFillBox.gapW16,
-              Expanded(
-                  flex: 4,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      ThreeMetricsWidgets(
-                        metrics: metricsList,
-                        bgColor: Color(0xFFF4C948),
-                        explain: '2024-09',
-                      ),
-                      AppFillBox.gapH16,
-                      ThreeMetricsWidgets(
-                        metrics: metricsLists,
-                        bgColor: Color(0xFFEF7C38),
-                        explain: '2024-10',
-                      ),
-                      AppFillBox.gapH16,
-                      Wrap(
-                        direction: Axis.horizontal,
-                        alignment: WrapAlignment.spaceEvenly,
-                        spacing: AppDefaults.padding,
-                        runSpacing: AppDefaults.padding,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    flex: 6,
+                    child: Column(
+                      children: [
+                        PanelWidgets(child: ImageViewWdiget()),
+                        AppFillBox.gapH16,
+                        OneLineChartWidgets(lineChartData: sampleData1)
+                      ],
+                    ),
+                  ),
+                  AppFillBox.gapW16,
+                  Expanded(
+                      flex: 4,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          OneMetricsWidgets(
-                            metricsDomain: demoM,
-                            bgColor: Color(0xFF4562D5),
+                          ThreeMetricsWidgets(
+                            metrics: metricsList,
+                            bgColor: Color(0xFFF4C948),
+                            explain: '2024-09',
                           ),
-                          OneMetricsWidgets(
-                            metricsDomain: demoM,
-                            bgColor: Color(0xFF4562D5),
+                          AppFillBox.gapH16,
+                          ThreeMetricsWidgets(
+                            metrics: metricsLists,
+                            bgColor: Color(0xFFEF7C38),
+                            explain: '2024-10',
+                          ),
+                          AppFillBox.gapH16,
+                          Wrap(
+                            direction: Axis.horizontal,
+                            alignment: WrapAlignment.spaceEvenly,
+                            spacing: AppDefaults.padding,
+                            runSpacing: AppDefaults.padding,
+                            children: [
+                              OneMetricsWidgets(
+                                metricsDomain: demoM,
+                                bgColor: Color(0xFF4562D5),
+                              ),
+                              OneMetricsWidgets(
+                                metricsDomain: demoM,
+                                bgColor: Color(0xFF4562D5),
+                              ),
+                            ],
                           ),
                         ],
-                      ),
-                    ],
-                  )),
+                      )),
+                ],
+              ),
             ],
           ),
         ],

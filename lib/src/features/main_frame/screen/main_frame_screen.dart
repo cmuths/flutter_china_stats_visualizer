@@ -22,23 +22,23 @@ class MainFrameScreen extends StatelessWidget {
             child: SidebarMenu(),
           ),
           Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: ListView(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: AppDefaults.padding,
-                          vertical: AppDefaults.padding,
-                        ),
-                        child: SafeArea(child: child),
+            child:SafeArea(
+              child: LayoutBuilder(
+                builder: (ctx, size) {
+                  return SingleChildScrollView(
+                    scrollDirection: Axis.vertical,
+                    child: Container(
+                      width: size.maxWidth,
+                      height: size.maxHeight,
+                      constraints: const BoxConstraints(
+                        minHeight: 750,
                       ),
-                    ],
-                  ),
-                ),
-              ],
+                      padding: const EdgeInsets.all(AppDefaults.padding),
+                      child: child,
+                    ),
+                  );
+                },
+              ),
             ),
           )
         ],
